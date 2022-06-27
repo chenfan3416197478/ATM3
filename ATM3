@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Account
+{
+	char name[100];
+	char username[100];
+	char password[100];
+	struct Account*next;
+};
+typedef struct Account Account;
+Account*head=NULL;
+Account*tail=NULL;
+void init()
+{
+	FILE*fp=fopen("c:tt/atm.txt","r");
+	if(fp!=NULL)
+	{
+		while(!feof(fp))
+		{
+				Account*newNodeP=(Account*)malloc(sizeof(Account));
+				fscanf(fp,"%s,%s,%s\n",newNodeP->name,newNodeP->username,newNodeP->password);
+				newNodeP->next=NULL;
+				if(head==NULL)
+				{
+					head=newNodeP;
+					tali=newNodeP;
+				}
+				else
+				{
+					tail->next=newNodeP;
+					tail=newNodeP;
+				}
+
+		}
+	}
+}
+int main()
+{
+return 0;
+}
